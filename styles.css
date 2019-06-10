@@ -1,0 +1,90 @@
+@font-face {
+    font-family: 'Pixel';
+    src: url(assets/fonts/VT323-Regular.ttf) format('truetype');
+}
+
+html, body {
+    height: 2000px;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Pixel', 'Regular';
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(rgb(91, 188, 206) 0%, rgb(91, 188, 206) 30.08%, rgb(118, 200, 211) 45.07%, rgb(184, 220, 218) 62.87%, rgb(224, 232, 224) 74.13%, rgb(226, 232, 225) 79.38%, rgb(226, 232, 225) 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.hole {
+    transition-property: opacity;
+    transition-duration: 2s;
+    position: relative;
+    max-height: 100%;
+    display: flex;
+}
+
+.hole>form {
+    margin: auto;
+    flex-direction: column;
+    display: flex;
+    align-items: center
+}
+
+.host_container {
+    position: fixed;
+    left: 12px;
+    bottom: 130px;
+    z-index: 2;
+}
+
+.host {
+    max-width: 95px;
+}
+
+.speak_bubble {
+    position: fixed;
+    left: 15px;
+    bottom: 150px;
+    width: 270px;
+    opacity: 0;
+    transition-duration: 2s;
+    z-index: 2;
+}
+
+.speak_bubble>p {
+    position: relative;
+    bottom: 46px;
+    left: 35px;
+    font-size: 20px;
+}
+
+.speak_bubble>img {
+    position: relative;
+    top: 70px;
+    max-width: 100%;
+}
+
+.clouds {
+    max-width: 100%;
+    position: fixed;
+    bottom: 0px;
+    z-index: 1;
+}
+
+.clouds_2 {
+    max-width: 100%;
+    position: relative;
+    bottom: 100px;
+    transform: rotateZ(180deg);
+}
+
+.speak {
+    opacity: 1;
+}
