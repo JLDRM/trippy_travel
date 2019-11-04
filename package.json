@@ -2,7 +2,7 @@
   "name": "trippy_cat_travel",
   "version": "1.0.0",
   "description": "The beauty junky Mishongo will let us join to a trippy travel through pure js.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "test"
   },
