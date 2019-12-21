@@ -1,12 +1,13 @@
 const express = require('express')
 const app = express();
 
-// Serve only the static files form the dist directory
-app.use(express.static('./'));
+// Serve all the static files form the root directory
+app.use(express.static(__dirname + '/'));
 
+// Fallback for all request
 app.get('/*', function(req,res) {
     
-res.sendFile('landing.html');
+res.sendFile(__dirname + '/landing.html');
 
 });
 
