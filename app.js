@@ -1,7 +1,4 @@
-//Install express server
-const express = require('express');
-const path = require('path');
-
+const express = require('express')
 const app = express();
 
 // Serve only the static files form the dist directory
@@ -9,7 +6,8 @@ app.use(express.static('./'));
 
 app.get('/*', function(req,res) {
     
-res.sendFile('./landing.html');
+res.sendFile('landing.html');
+
 });
 
 // Start the app by listening on the default Heroku port
