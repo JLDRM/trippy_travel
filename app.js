@@ -1,17 +1,16 @@
-var http = require('http'),
-    fs = require('fs')
-var port = process.env.PORT || 3000
-http.createServer(function(req, res) {
-    var url = './' + (req.url == '/' ? 'landing.html' : req.url)
-    fs.readFile(url, function(err, html) {
-        if (err) {
-            var message404 = "There is no such page! <a href='/'>Back to home page</a>"
-            res.writeHead(404, {'Content-Type': 'text/html', 'Content-Length': message404.length})
-            res.write(message404)
-        } else {
-            res.writeHead(200, {'Content-Type': 'text/html', 'Content-Length': html.length})
-            res.write(html)
-        }
-        res.end()
-    })
-}).listen(port)
+//Install express server
+const express = require('express');
+const path = require('path');
+
+const app = express();
+
+// Serve only the static files form the dist directory
+app.use(express.static('./'));
+
+app.get('/*', function(req,res) {
+    
+res.sendFile('./landing.html');
+});
+
+// Start the app by listening on the default Heroku port
+app.listen(process.env.PORT || 8080);
