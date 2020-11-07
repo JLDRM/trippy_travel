@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Trippy Travel</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" href="./assets/img/Mishongo.png" />
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="heartbeat-loader.css">
+    <link rel="stylesheet" href="minesweeper.css">
 </head>
 
 <body>
@@ -15,20 +17,26 @@
         <img id="host" src="assets/img/host.gif" class="host">
     </div>
     <div id="speak_bubble" class="speak_bubble">
-        <img src="assets/img/speech-bubble.png">
+        <img src="assets/img/speech-bubble-down.png">
         <p id="speak_bubble_text">Hell yeah!</p>
     </div>
     <img src="assets/img/Clouds-02.png" class="clouds_2">
     <img src="assets/img/Clouds-02.png" class="clouds">
-    <section>
-        <div class="hole">
-            <form id="pass_form" role="form">
-                <label for="pass">Secret Password:</label>
-                <input autocomplete="off" id="pass" type="text">    
-            </form>
+
+    <section class="game-1-container">
+        <div id="heartbeat-loader" class="heartbeat-loader"></div>
+        <div id="minesweeper-container" class="minesweeper-container">
+            <div class="score-board">
+                <div id="counter-time" class="counter time">000</div>
+                <div id="restart" class="face"></div>
+                <div id="counter-mines" class="counter mines"></div>
+            </div>
+            <div id="game-board" class="game-board"></div>
         </div>
     </section>
+
 </body>
-<script src="landing.js"></script>
+<script src="https://unpkg.com/rxjs/bundles/rxjs.umd.min.js"></script>
+<script type="module" src="landing.js"></script>
 
 </html>

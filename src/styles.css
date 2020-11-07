@@ -22,6 +22,12 @@ body {
     position: relative;
 }
 
+.game-1-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .hole {
     transition-property: opacity;
     transition-duration: 2s;
@@ -41,7 +47,7 @@ body {
     position: fixed;
     left: 12px;
     bottom: 130px;
-    z-index: 2;
+    z-index: 5;
 }
 
 .host {
@@ -51,16 +57,16 @@ body {
 .speak_bubble {
     position: fixed;
     left: 15px;
-    bottom: 150px;
+    bottom: 30px;
     width: 270px;
     opacity: 0;
     transition-duration: 2s;
-    z-index: 2;
+    z-index: 4;
 }
 
 .speak_bubble>p {
     position: relative;
-    bottom: 46px;
+    bottom: 27px;
     left: 35px;
     font-size: 20px;
 }
@@ -76,7 +82,7 @@ body {
     position: fixed;
     bottom: 0;
     left: 0;
-    z-index: 1;
+    z-index: 3;
 }
 
 .clouds_2 {

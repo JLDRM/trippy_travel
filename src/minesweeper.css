@@ -1,0 +1,153 @@
+/* =============================== 
+minesweeper styles 
+================================== */
+
+.minesweeper-container {
+  display: none;
+  justify-content: center;
+  padding: 10px;
+  user-select: none;
+  z-index: 2;
+  opacity: 0;
+  transition-duration: 2s;
+}
+
+.score-board {
+  display: grid;
+  grid-auto-flow: column;
+  font-size: 30px;
+  margin-top: 10px;
+  padding: 10px;
+  border-top-color: #818181;
+  border-left-color: #818181;
+  border-bottom-color: #fff;
+  border-right-color: #fff;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.counter {
+  font-size: 38px;
+  background-color: black;
+  color: red;
+  height: 40px;
+  padding: 2px 15px;
+  border-top-color: #818181;
+  border-left-color: #818181;
+  border-bottom-color: #fff;
+  border-right-color: #fff;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.face {
+  display: grid;
+  justify-content: center;
+  align-content: end;
+  align-items: center;
+  justify-self: center;
+  width: 40px;
+  height: 42px;
+  border-top-color: #fff;
+  border-left-color: #fff;
+  border-bottom-color: #818181;
+  border-right-color: #818181;
+  border-style: solid;
+  border-width: 2px;
+  cursor: pointer;
+}
+
+.time {
+  justify-self: start;
+}
+
+.mines {
+  justify-self: end;
+}
+
+.game-board {
+  display: grid;
+  background-color: #7b7b7b;
+  padding: 2px;
+  margin-top: 10px;
+  border-top-color: #878787;
+  border-left-color: #878787;
+  border-bottom-color: #fff;
+  border-right-color: #fff;
+  border-style: solid;
+  border-width: 3px;
+}
+
+.square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.square-initial {
+  width: 26px;
+  height: 26px;
+  background-color: #bdbdbd;
+  border-top-color: #fff;
+  border-left-color: #fff;
+  border-right-color: #818181;
+  border-bottom-color: #818181;
+  border-style: solid;
+  border-width: 3px;
+  cursor: pointer;
+}
+
+.square-final {
+  width: 32px;
+  height: 32px;
+  cursor: default;
+}
+
+.bomb {
+  justify-content: flex-end;
+}
+
+.number {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.flag {
+  font-size: 12px;
+}
+
+.false-flag {
+  font-size: 18px;
+}
+
+.one {
+  color: blue;
+}
+
+.two {
+  color: green;
+}
+
+.three {
+  color: red;
+}
+
+.four {
+  color: darkblue;
+}
+
+.five {
+  color: brown;
+}
+
+.six {
+  color: darkcyan;
+}
+
+.seven {
+  color: #9e3c9e;
+}
+
+.eight {
+  color: #ffc400;
+}

@@ -1,3 +1,5 @@
+import { minesweeperModule } from './minesweeper.module.js';
+
 "use strict";
 
 console.log("hell yeah");
@@ -8,7 +10,8 @@ var disturb_counter = 0;
 const speak_bubble = document.getElementById("speak_bubble");
 const speak_bubble_text = document.getElementById("speak_bubble_text");
 
-const sucker_input = document.getElementById("pass_form");
+const minesweeper_loader = document.getElementById("heartbeat-loader");
+const minesweeper = document.getElementById("minesweeper-container");
 
 document.addEventListener('scroll', function () {
     fucking_host_speaks("Where are you going?");
@@ -25,12 +28,6 @@ host.addEventListener('click', function (a, b) {
         fucking_host_speaks("Don't touch me!");
     }
 });
-
-sucker_input.addEventListener('submit', function (e) {
-    fucking_host_speaks("Thats holly crap...human")
-    e.preventDefault();
-})
-
 
 /** Make the fucking grace speaks
  * @param string your grace words
@@ -77,3 +74,23 @@ function center_words(god_words) {
     var final = "&nbsp".repeat(b);
     return start + god_words + final;
 }
+
+
+/**
+ * Handle all comunications from minsweeper module
+ * @param {string} comunication to handle
+ */
+function HandleComunications(comunication) {
+    if (comunication == 'LOADED') {
+        minesweeper_loader.style.display = "none";
+        minesweeper.style.display = "grid";
+        setTimeout(() => {
+            minesweeper.style.opacity = 1;
+        }, 300);
+    } else {
+        fucking_host_speaks(comunication);
+    }
+}
+
+minesweeperModule.communicator.subscribe({ next: HandleComunications })
+
