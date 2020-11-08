@@ -14,7 +14,7 @@ export var minesweeperModule = (function () {
 
   const communicatorObservable = new ReplaySubject(1);
 
-  // game state
+  // Game state
   var timer = null;
   var gameStarted = false;
   var gameTimerInitiated = false;
