@@ -95,3 +95,62 @@ body {
 .speak {
     opacity: 1;
 }
+
+/* ==============================
+HALL OF FAME
+============================== */
+
+.hall-of-fame-container {
+    padding: 36px;
+    opacity: 0;
+    transition-duration: 2s;
+}
+
+.hall-of-fame-container table {
+    border-style: inset;
+    border-spacing: 0;
+}
+
+.hall-of-fame-container tbody {
+    background-color: aquamarine;
+}
+
+.hall-of-fame-container tr {}
+
+.hall-of-fame-container td {
+    border-bottom: 1px solid;
+    border-bottom-color: black;
+    background-color: lemonchiffon;
+}
+
+/* ==============================
+WINNER FORM
+============================== */
+
+.winner-form-container {
+    padding: 0 36px;
+    display: none;
+    transition-duration: 2s;
+}
+
+.winner-form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.winner-form-container button {
+    margin: 0 0 30px 0;
+    font-family: 'Pixel', 'Regular';
+    font-size: 20px;
+    background-color: aquamarine;
+}
+
+.winner-form-input {
+    margin: 0 0 30px 0;
+    font-family: 'Pixel', 'Regular';
+    font-size: 20px;
+}
+
+.winner-form-input::placeholder {
+    font-family: 'Pixel', 'Regular';
+}

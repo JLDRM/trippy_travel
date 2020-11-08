@@ -37,7 +37,7 @@ const RootQuery = new GraphQLObjectType({
         return RecordModel.findById(args.id);
       }
     },
-    records: {
+    hall_of_fame: {
       type: new GraphQLList(RecordType),
       resolve(parent, args) {
         return RecordModel.find();

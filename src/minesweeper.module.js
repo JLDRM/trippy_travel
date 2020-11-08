@@ -250,7 +250,7 @@ export var minesweeperModule = (function () {
           seconds++;
           renderGameTimeUpdate(seconds);
         }, 1000);
-        communicatorObservable.next('hold for adding flags')
+        communicatorObservable.next('hold for adding flags');
       }
 
       if (square.value == "") {
@@ -335,6 +335,7 @@ export var minesweeperModule = (function () {
     gameStarted = false;
     stopTimer();
     setFaceEmoji('😎');
+    communicatorObservable.next({ winner: { score: seconds } });
   }
 
   function setFaceEmoji(emoji) {
