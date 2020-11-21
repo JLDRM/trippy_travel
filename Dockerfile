@@ -1,6 +1,12 @@
-FROM nginx:1.13.8
+FROM node:12
 
-RUN rm /etc/nginx/conf.d/*
-COPY nginx.conf /etc/nginx/conf.d/nginx.conf
+WORKDIR /usr/src/app
 
-COPY src/. /opt/app
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 8080
+CMD [ "node", "app.js" ]

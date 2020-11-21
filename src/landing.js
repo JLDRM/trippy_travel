@@ -1,11 +1,15 @@
 import { minesweeperModule } from './minesweeper.module.js';
 import { hallOfFameModule } from './hall-of-fame.module.js';
+import { trippycss } from './trippy-stuff.js'
 
 "use strict";
 
 (function () {
 
-    console.log("hell yeah");
+    console.log(`%cTrippy Travel:`, trippycss);
+    console.log("Whatsup fellas. This is an easily incomprehensible art. Anyway, this will be enhanced on the future.");
+    console.log("Pleased to invite you to 'Sources' tab to have a look at the actual implementation");
+    console.log("Thanks for watching 😻");
 
     const host = document.getElementById("host_container");
     var disturb_counter = 0;
@@ -104,6 +108,10 @@ import { hallOfFameModule } from './hall-of-fame.module.js';
         }
     }
 
+    /**
+     * Create and render the hall of fame
+     * @param {any} data the collection of hall of fame
+     */
     function renderHallOfFame({ data }) {
         function sorterByScore(a, b) {
             if (a.scoreTime > b.scoreTime) {
@@ -141,6 +149,10 @@ import { hallOfFameModule } from './hall-of-fame.module.js';
         hall_of_fame_container.style.opacity = 1;
     }
 
+    /**
+     * Create and render the winner form to submit the victory 
+     * @param {number} scoreTime the time received from the minesweepermodule on win
+     */
     function renderWinnerForm(scoreTime) {
         let winner_form = document.createElement('form');
         winner_form.setAttribute('id', 'winner-form');
@@ -176,6 +188,9 @@ import { hallOfFameModule } from './hall-of-fame.module.js';
         winner_form_container.appendChild(winner_form);
     }
 
+    /**
+     * Get all winner from hall of fame DB and execute te renderHallOfFame with it.
+     */
     function getAndRenderHallOfFame() {
         let winnerForm = document.getElementById('winner-form');
         if (winnerForm) {

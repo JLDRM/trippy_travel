@@ -101,9 +101,13 @@ HALL OF FAME
 ============================== */
 
 .hall-of-fame-container {
-    padding: 36px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 300px;
+    margin: 36px auto;
     opacity: 0;
-    transition-duration: 2s;
+    transition-duration: 3s;
 }
 
 .hall-of-fame-container table {
