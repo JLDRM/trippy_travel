@@ -28,21 +28,6 @@ body {
     align-items: center;
 }
 
-.hole {
-    transition-property: opacity;
-    transition-duration: 2s;
-    position: relative;
-    max-height: 100%;
-    display: flex;
-}
-
-.hole>form {
-    margin: auto;
-    flex-direction: column;
-    display: flex;
-    align-items: center
-}
-
 .host_container {
     position: fixed;
     left: 12px;
@@ -52,6 +37,25 @@ body {
 
 .host {
     max-width: 95px;
+}
+
+.clouds {
+    max-width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+}
+
+.clouds_2 {
+    max-width: 100%;
+    position: relative;
+    bottom: 100px;
+    transform: rotateZ(180deg);
+}
+
+.speak {
+    opacity: 1 !important;
 }
 
 .speak_bubble {
@@ -77,23 +81,52 @@ body {
     max-width: 100%;
 }
 
-.clouds {
-    max-width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 3;
+@media only screen and (max-device-width: 568px) {
+    .host_container {
+        left: 30px;
+        bottom: 80px;
+    }
+    .speak_bubble {
+        left: 15px;
+        bottom: -25px;
+    }
+    .clouds {
+        bottom: -50px;
+    }
 }
 
-.clouds_2 {
-    max-width: 100%;
-    position: relative;
-    bottom: 100px;
-    transform: rotateZ(180deg);
+@media only screen and (min-device-width: 569px) and (max-device-width: 1024px) {
+    .host_container {
+        left: 90px;
+        bottom: 120px;
+    }
+    .speak_bubble {
+        left: 90px;
+        bottom: 30px;
+    }
+    .clouds {
+        bottom: -200px;
+    }
 }
 
-.speak {
-    opacity: 1;
+@media only screen and (min-device-width: 1025px) and (max-resolution: 192dpi) {
+    .host_container {
+        left: 200px;
+        bottom: 130px;
+    }
+    .speak_bubble {
+        left: 200px;
+        bottom: 30px;
+    }
+    .clouds {
+        bottom: -200px;
+    }
+}
+
+@media only screen and (min-device-width: 1025px) and (min-resolution: 192dpi) {
+    .clouds {
+        bottom: -400px;
+    }
 }
 
 /* ==============================
@@ -118,8 +151,6 @@ HALL OF FAME
 .hall-of-fame-container tbody {
     background-color: aquamarine;
 }
-
-.hall-of-fame-container tr {}
 
 .hall-of-fame-container td {
     border-bottom: 1px solid;

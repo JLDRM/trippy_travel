@@ -7,12 +7,14 @@ import { trippycss } from './trippy-stuff.js'
 (function () {
 
     console.log(`%cTrippy Travel:`, trippycss);
-    console.log("Whatsup fellas. This is an easily incomprehensible art. Anyway, this will be enhanced on the future.");
-    console.log("Pleased to invite you to 'Sources' tab to have a look at the actual implementation");
+    console.log("Whatsup fellas. I know this is an easily incomprehensible art. Anyway, this will be enhanced on the future.");
+    console.log("Pleased to invite you to 'Sources' tab to have a look at the actual implementation.");
     console.log("Thanks for watching 😻");
+    console.log('More information on https://github.com/JLDRM/trippy_travel')
 
-    const host = document.getElementById("host_container");
     var disturb_counter = 0;
+    var speak_bubble_timer;
+    const host = document.getElementById("host_container");
 
     const speak_bubble = document.getElementById("speak_bubble");
     const speak_bubble_text = document.getElementById("speak_bubble_text");
@@ -45,11 +47,14 @@ import { trippycss } from './trippy-stuff.js'
      * @param string your grace words
     */
     function fucking_host_speaks(god_words) {
+        if (speak_bubble_timer) {
+            clearTimeout(speak_bubble_timer);
+        }
         speak_bubble.classList.add("speak");
         set_god_words(god_words);
-        setTimeout(() => {
+        speak_bubble_timer = setTimeout(() => {
             speak_bubble.classList.remove("speak");
-        }, 2000);
+        }, 2500);
     };
 
     /** Fullfill the text depending the 24 max space the speech can handle
@@ -180,10 +185,11 @@ import { trippycss } from './trippy-stuff.js'
         winner_form.appendChild(button);
         winner_form.addEventListener('submit', function (e) {
             e.preventDefault();
+            button.setAttribute('disabled', true);
             hallOfFameModule.addRecordPromise(nicknameInput.value, scoreTime, descriptionInput.value)
                 .then(response => response.json())
                 .catch(error => console.error('Error:', error))
-                .then((response) => { console.log(response); getAndRenderHallOfFame() });
+                .then(() => { getAndRenderHallOfFame() });
         });
         winner_form_container.appendChild(winner_form);
     }

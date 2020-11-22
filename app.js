@@ -28,7 +28,6 @@ app.use(express.static(__dirname + '/src/'));
 
 app.get('/*', function (req, res) {
   res.sendFile(__dirname + '/src/landing.html');
-
 });
 
 app.listen(process.env.PORT || 8080, () => {

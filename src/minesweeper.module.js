@@ -1,5 +1,5 @@
 
-"use strict";
+'use strict';
 
 export var minesweeperModule = (function () {
 
@@ -11,7 +11,6 @@ export var minesweeperModule = (function () {
 
   // Comunication vars
   const { ReplaySubject } = rxjs;
-
   const communicatorObservable = new ReplaySubject(1);
 
   // Game state
@@ -41,7 +40,6 @@ export var minesweeperModule = (function () {
       }
       squares.push(square);
       indexes.push(i);
-
     }
 
     // initialiting mines
@@ -175,10 +173,10 @@ export var minesweeperModule = (function () {
     squareStyle.gridRow = `${square.row}`;
     squareStyle.gridColumn = `${square.column}`;
 
-    squareElement.addEventListener('touchstart', function (e) { touchStart(e, square) }, false);
-    squareElement.addEventListener('touchend', function () { touchEnd(square) }, false);
-    squareElement.addEventListener('contextmenu', function (e) { e.preventDefault(); }, false);
-    squareElement.addEventListener('click', function (e) { communicatorObservable.next('only for mobile fella!'); }, false);
+    squareElement.addEventListener('touchstart', function (e) { onTouchStart(e, square) }, false);
+    squareElement.addEventListener('touchend', function (e) { onTouchEnd(e, square) }, false);
+    squareElement.addEventListener('click', function (e) { onClick(e, square) }, false);
+    squareElement.addEventListener('contextmenu', function (e) { onRigthClick(e, square) }, false);
     return squareElement;
   }
 
@@ -213,33 +211,6 @@ export var minesweeperModule = (function () {
     }
   }
 
-  var touchEndTimer;
-
-  function touchStart(ev, square) {
-    ev.preventDefault();
-    if (!touchEndTimer) {
-      touchEndTimer = setTimeout(function () { flagSquare(square) }, 300);
-    }
-  }
-
-  function touchEnd(square) {
-    if (touchEndTimer) {
-      clearTimeout(touchEndTimer);
-      touchEndTimer = null;
-    }
-
-    resolveSquare(square)
-
-  }
-
-  function flagSquare(square) {
-    if (square.initial) {
-      square.flag = !square.flag;
-      renderBoardSquares([square]);
-      updateRemainingMines(square.flag ? - 1 : 1)
-    }
-  }
-
   function resolveSquare(square) {
     if (gameStarted && square.initial && !square.flag) {
       square.initial = false;
@@ -253,9 +224,9 @@ export var minesweeperModule = (function () {
         communicatorObservable.next('hold for adding flags');
       }
 
-      if (square.value == "") {
+      if (square.value == '') {
         square.siblingsIndexes.forEach(siblingIndex => {
-          resolveSquare(squares[siblingIndex])
+          resolveSquare(squares[siblingIndex]);
         });
       }
 
@@ -267,7 +238,7 @@ export var minesweeperModule = (function () {
         remainingSquares--;
 
         if (remainingSquares == 3) {
-          communicatorObservable.next('You can win mate!')
+          communicatorObservable.next('You can\'t win mate!');
         }
 
         if (remainingSquares == 0) {
@@ -361,8 +332,51 @@ export var minesweeperModule = (function () {
     setFaceEmoji('🙂');
   }
 
-  var restartButton = document.getElementById('restart');
-  restartButton.addEventListener('touchend', function (e) { startGame(); }, false);
+  /* ================ EVENT HANDLERS ================================================================== */
+  var touchEndTimer;
+
+  function onTouchStart(ev, square) {
+    ev.preventDefault();
+    if (!touchEndTimer) {
+      touchEndTimer = setTimeout(function () { onFlagSquare(square) }, 300);
+    }
+  }
+
+  function onTouchEnd(ev, square) {
+    ev.preventDefault();
+    if (touchEndTimer) {
+      clearTimeout(touchEndTimer);
+      touchEndTimer = null;
+    }
+    resolveSquare(square);
+  }
+
+  function onClick(ev, square) {
+    ev.preventDefault();
+    resolveSquare(square)
+  }
+
+  function onRigthClick(ev, square) {
+    ev.preventDefault();
+    onFlagSquare(square)
+  }
+
+  function onFlagSquare(square) {
+    if (square.initial) {
+      square.flag = !square.flag;
+      renderBoardSquares([square]);
+      updateRemainingMines(square.flag ? - 1 : 1);
+    }
+  }
+
+  const restartButton = document.getElementById('restart');
+  restartButton.addEventListener('touchend', function (e) { handleGameStartEvent(e) }, false);
+  restartButton.addEventListener('click', function (e) { handleGameStartEvent(e) }, false);
+
+  function handleGameStartEvent(ev) {
+    ev.preventDefault();
+    startGame();
+  }
 
   startGame();
 
