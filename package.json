@@ -1,6 +1,6 @@
 {
   "name": "trippy_cat_travel",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The beautiful junky mishongo will let us join to a trippy travel through pure js.",
   "main": "app.js",
   "scripts": {

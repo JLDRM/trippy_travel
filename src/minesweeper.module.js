@@ -142,7 +142,7 @@ export var minesweeperModule = (function () {
 
     renderBoardSquares(squares);
     gameStarted = true;
-    communicatorObservable.next('LOADED');
+    communicatorObservable.next('GAME_LOADED');
   }
 
   function renderBoardSquares(squares) {

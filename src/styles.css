@@ -23,6 +23,7 @@ body {
 }
 
 .game-1-container {
+    pointer-events: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,6 +41,7 @@ body {
 }
 
 .clouds {
+    pointer-events: none;
     max-width: 100%;
     position: fixed;
     bottom: 0;

@@ -7,8 +7,8 @@ import { trippycss } from './trippy-stuff.js'
 (function () {
 
     console.log(`%cTrippy Travel:`, trippycss);
-    console.log("Whatsup fellas. I know this is an easily incomprehensible art. Anyway, this will be enhanced on the future.");
-    console.log("Pleased to invite you to 'Sources' tab to have a look at the actual implementation.");
+    console.log("Whatsup fellas. I know this is an easily incomprehensible art. Anyway, this will be enhanced in the future.");
+    console.log("Pleased to invite you to 'Sources' tab to take a look at the actual implementation.");
     console.log("Thanks for watching 😻");
     console.log('More information on https://github.com/JLDRM/trippy_travel')
 
@@ -92,13 +92,12 @@ import { trippycss } from './trippy-stuff.js'
         return start + god_words + final;
     }
 
-
     /**
      * Handle all comunications from minsweeper module
      * @param {any} comunication to handle
      */
     function HandleComunications(comunication) {
-        if (comunication == 'LOADED') {
+        if (comunication == 'GAME_LOADED') {
             minesweeper_loader.style.display = "none";
             minesweeper.style.display = "grid";
             setTimeout(() => {
@@ -119,10 +118,10 @@ import { trippycss } from './trippy-stuff.js'
      */
     function renderHallOfFame({ data }) {
         function sorterByScore(a, b) {
-            if (a.scoreTime > b.scoreTime) {
+            if (Number(a.scoreTime) > Number(b.scoreTime)) {
                 return 1;
             }
-            if (a.scoreTime < b.scoreTime) {
+            if (Number(a.scoreTime) < Number(b.scoreTime)) {
                 return -1;
             } else {
                 return 0;
@@ -131,24 +130,27 @@ import { trippycss } from './trippy-stuff.js'
 
         hall_of_fame_container.style.opacity = 0;
 
-        data.hall_of_fame.sort(sorterByScore).forEach(record => {
-            let recordTr = document.createElement('tr');
-            recordTr.setAttribute('id', record.id)
+        const sortedRecords = data.hall_of_fame.sort(sorterByScore);
+        
+        sortedRecords.forEach(record => {
+            let newRecordTr = document.createElement('tr');
+            newRecordTr.setAttribute('id', record.id)
+            
             let nicknameTd = document.createElement('td');
             let scoreTimeTd = document.createElement('td');
             let descriptionTd = document.createElement('td');
             nicknameTd.innerHTML = record.nickname;
             scoreTimeTd.innerHTML = record.scoreTime;
             descriptionTd.innerHTML = record.description;
-            recordTr.appendChild(nicknameTd);
-            recordTr.appendChild(scoreTimeTd);
-            recordTr.appendChild(descriptionTd);
+            newRecordTr.appendChild(nicknameTd);
+            newRecordTr.appendChild(scoreTimeTd);
+            newRecordTr.appendChild(descriptionTd);
 
             let oldRecordTr = document.getElementById(record.id);
             if (oldRecordTr) {
                 hall_of_fame.removeChild(oldRecordTr);
             }
-            hall_of_fame.appendChild(recordTr);
+            hall_of_fame.appendChild(newRecordTr);
         });
 
         hall_of_fame_container.style.opacity = 1;
