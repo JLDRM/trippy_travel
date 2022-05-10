@@ -3,15 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,viewport-fit=cover,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Trippy Travel</title>
     <meta name="description" content="Free online minesweeper with a hall of fame for the winners." />
+    <meta name="theme-color" content="pink" />
     <meta property="og:title" content="The trippy travel" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.jldrm.dev" />
     <meta property="og:image" content="https://www.jldrm.dev/assets/img/sharing-love.jpg" />
+
+    <link rel="manifest" href="manifest.webmanifest" />
     <link rel="icon" type="image/png" href="./assets/img/Mishongo.png" />
+    <link rel="apple-touch-icon" type="image/png" href="./assets/img/logo_512.png" />
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="heartbeat-loader.css">
     <link rel="stylesheet" href="minesweeper.css">
@@ -57,7 +61,8 @@
     </section>
 
 </body>
-<script src="https://unpkg.com/rxjs/bundles/rxjs.umd.min.js"></script>
+<script src="https://unpkg.com/rxjs@^7/dist/bundles/rxjs.umd.min.js"></script>
 <script type="module" src="landing.js"></script>
+<script src="sw-register.js"></script>
 
 </html>

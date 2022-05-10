@@ -1,0 +1,27 @@
+{
+  "name": "Trippy cat travel",
+  "short_name": "Trippy cat",
+  "start_url": "./",
+  "orientation": "portrait",
+  "theme_color": "pink",
+  "scope": "./",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "./assets/img/logo_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/img/logo_1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/img/maskable_icon.png",
+      "sizes": "568x568",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -88,10 +88,12 @@ body {
         left: 30px;
         bottom: 80px;
     }
+
     .speak_bubble {
         left: 15px;
         bottom: -25px;
     }
+
     .clouds {
         bottom: -50px;
     }
@@ -102,10 +104,12 @@ body {
         left: 90px;
         bottom: 120px;
     }
+
     .speak_bubble {
         left: 90px;
         bottom: 30px;
     }
+
     .clouds {
         bottom: -200px;
     }
@@ -116,10 +120,12 @@ body {
         left: 200px;
         bottom: 130px;
     }
+
     .speak_bubble {
         left: 200px;
         bottom: 30px;
     }
+
     .clouds {
         bottom: -200px;
     }

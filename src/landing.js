@@ -131,11 +131,11 @@ import { trippycss } from './trippy-stuff.js'
         hall_of_fame_container.style.opacity = 0;
 
         const sortedRecords = data.hall_of_fame.sort(sorterByScore);
-        
+
         sortedRecords.forEach(record => {
             let newRecordTr = document.createElement('tr');
             newRecordTr.setAttribute('id', record.id)
-            
+
             let nicknameTd = document.createElement('td');
             let scoreTimeTd = document.createElement('td');
             let descriptionTd = document.createElement('td');
