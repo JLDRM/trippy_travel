@@ -4,7 +4,7 @@
   "description": "The beautiful junky mishongo will let us join to a trippy travel through pure js.",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node --trace-warnings index.js",
     "test": "test"
   },
   "repository": {
