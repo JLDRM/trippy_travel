@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require("mongoose");
 const { graphqlHTTP } = require("express-graphql");
-const schema = require("./src/hall-of-fame/schema/schema");
+const schema = require("../src/hall-of-fame/schema/schema");
 require('dotenv').config();
 
 const app = express();
@@ -24,12 +24,12 @@ app.use(
   })
 );
 
-app.use(express.static(__dirname + '/src/'));
-
-app.get('/*', function (req, res) {
-  res.sendFile(__dirname + '/src/landing.html');
+app.get('/*', function (_, res) {
+  res.sendFile(__dirname + '/landing.html');
 });
 
 app.listen(process.env.PORT || 8080, () => {
   console.log("...listening on port 8080");
 });
+
+module.exports = app;
